@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { randomWord, ENGLISH_WORDS } from "./words"
 
 import "./Snowman.css";
 import img0 from "./0.png";
@@ -24,14 +25,14 @@ import img6 from "./6.png";
 
 function Snowman({
   images = [img0, img1, img2, img3, img4, img5, img6],
-  words = ["apple"],
+  words = ENGLISH_WORDS,
   maxWrong = 6,
 }) {
   /** by default, allow 6 guesses and use provided gallows images. */
 
   const [nWrong, setNWrong] = useState(0);
   const [guessedLetters, setGuessedLetters] = useState(() => new Set());
-  const [answer, setAnswer] = useState(words[0]);
+  const [answer, setAnswer] = useState(randomWord(words));
 
   /** guessedWord: show current-state of word:
    if guessed letters are {a,p,e}, show "app_e" for "apple"
@@ -70,6 +71,13 @@ function Snowman({
     ));
   }
 
+  /** resetGame: reset the game to default state */
+  function resetGame() {
+    setNWrong(0);
+    setGuessedLetters(() => new Set());
+    setAnswer(randomWord(words));
+  }
+
   return (
     <div className="Snowman">
       <img src={images[nWrong]} alt={nWrong} />
@@ -80,6 +88,11 @@ function Snowman({
       ) : (
         `You lose. The correct word is ${answer}`
       )}
+      <div>
+        <button
+        className="Snowman-reset-game"
+        onClick={resetGame}>Reset!</button>
+      </div>
     </div>
   );
 }

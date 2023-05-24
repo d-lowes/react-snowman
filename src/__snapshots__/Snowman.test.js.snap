@@ -24,6 +24,13 @@ exports[`number of wrong guesses cannot exceed max wrong 1`] = `
       _
     </p>
     You lose. The correct word is abcd
+    <div>
+      <button
+        class="Snowman-reset-game"
+      >
+        Reset!
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -185,6 +192,13 @@ exports[`snapshot tests Snowman component initial render matches snapshot 1`] = 
         z
       </button>
     </p>
+    <div>
+      <button
+        class="Snowman-reset-game"
+      >
+        Reset!
+      </button>
+    </div>
   </div>
 </div>
 `;
