@@ -31,20 +31,20 @@ test("number of wrong guesses cannot exceed max wrong", () => {
 
   expect(nWrong).toBe(maxWrong);
   expect(container).toContainHTML("You lose");
-  // expect(container.querySelector(".Snowman-button-area")).not.toBeInTheDocument()
-  // expect(container).toMatchSnapshot();
+  expect(container.querySelector(".Snowman-button-area")).not.toBeInTheDocument()
+  expect(container).toMatchSnapshot();
 });
 
-// describe("snapshot tests", function () {
-//   it("Snowman component initial render matches snapshot", function () {
-//     const { container } = render(
-//       <Snowman
-//         images={SNOWMAN_PROPS.images}
-//         words={SNOWMAN_PROPS.words}
-//         maxWrong={SNOWMAN_PROPS.maxWrong}
-//       />
-//     );
+describe("snapshot tests", function () {
+  it("Snowman component initial render matches snapshot", function () {
+    const { container } = render(
+      <Snowman
+        images={SNOWMAN_PROPS.images}
+        words={SNOWMAN_PROPS.words}
+        maxWrong={SNOWMAN_PROPS.maxWrong}
+      />
+    );
 
-//     expect(container).toMatchSnapshot();
-//   });
-// });
+    expect(container).toMatchSnapshot();
+  });
+});
